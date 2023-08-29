@@ -5,6 +5,8 @@ VisualStudioVersion = 17.6.33829.357
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ItExpertTestTask", "ItExpertTestTask.csproj", "{5E491FE7-366A-41DB-874F-CEE37025E730}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ItEspertTestTast_Tests", "..\ItEspertTestTast_Tests\ItEspertTestTast_Tests.csproj", "{B7A6596E-3C19-4D52-9260-68AF135346B3}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{5E491FE7-366A-41DB-874F-CEE37025E730}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5E491FE7-366A-41DB-874F-CEE37025E730}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5E491FE7-366A-41DB-874F-CEE37025E730}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B7A6596E-3C19-4D52-9260-68AF135346B3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B7A6596E-3C19-4D52-9260-68AF135346B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B7A6596E-3C19-4D52-9260-68AF135346B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B7A6596E-3C19-4D52-9260-68AF135346B3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
