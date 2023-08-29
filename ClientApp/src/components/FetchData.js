@@ -11,7 +11,8 @@ export class FetchData extends Component {
             loading: true,
             code: '',
             value: '',
-            jsonData: ''
+            jsonData: '',
+            typingTimeout: 0
         };
     }
 
@@ -101,10 +102,10 @@ export class FetchData extends Component {
         );
     }
 
-    async getItemsData(code, value) {
+    async getItemsData(code = '', value = '') {
         const params = {
-            code: code ?? '',
-            value: value ?? '',
+            code: code,
+            value: value,
         };
 
         const data = await getItemsDataFetch(params);
@@ -112,11 +113,21 @@ export class FetchData extends Component {
     }
     
     setCodeChange(event) {
-        this.getItemsData(event, this.state.value);
+        clearTimeout(this.state.typingTimeout);
+        let value = this.state.value;
+
+        var timeOut = setTimeout(async () => await this.getItemsData(event, value), 500);
+
+        this.setState({ code: event, typingTimeout: timeOut });
     }
 
     setValueChange(event) {
-        this.getItemsData(this.state.code, event);
+        clearTimeout(this.state.typingTimeout);
+        let code = this.state.code;
+
+        var timeOut = setTimeout(async () => await this.getItemsData(code, event), 500);
+
+        this.setState({ value: event, typingTimeout: timeOut });
     }
 
     isValidateInput(event) {
@@ -147,6 +158,7 @@ export class FetchData extends Component {
         this.getItemsData('', '');
     }
 }
+let delayTimeout;
 
 const displayGridData = {
     flexColumn: {
