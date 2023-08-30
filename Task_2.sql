@@ -1,4 +1,4 @@
--- Создание Таблиц и заполенение данных
+п»ї-- РЎРѕР·РґР°РЅРёРµ РўР°Р±Р»РёС† Рё Р·Р°РїРѕР»РµРЅРµРЅРёРµ РґР°РЅРЅС‹С…
 
 IF OBJECT_ID(N'dbo.ClientContacts', N'U') IS NOT NULL  
    DROP TABLE [dbo].[ClientContacts];  
@@ -68,10 +68,10 @@ INSERT INTO [dbo].[ClientContacts]
            (13,4,'Client Type 4','Client Contact Type 4'),
            (14,4,'Client Type 4','Client Contact Type 4'),
            (15,5,'Client Type 5','Client Contact Type 5')
+           
+-- Р—Р°РїСЂРѕСЃС‹ Рє Р‘Р”
 
--- Запросы к БД
-
---	Написать запрос, который возвращает наименование клиентов и кол-во контактов клиентов
+--	РќР°РїРёСЃР°С‚СЊ Р·Р°РїСЂРѕСЃ, РєРѕС‚РѕСЂС‹Р№ РІРѕР·РІСЂР°С‰Р°РµС‚ РЅР°РёРјРµРЅРѕРІР°РЅРёРµ РєР»РёРµРЅС‚РѕРІ Рё РєРѕР»-РІРѕ РєРѕРЅС‚Р°РєС‚РѕРІ РєР»РёРµРЅС‚РѕРІ
 select 
 	c.Id [ClientId], 
 	c.ClientName [ClientName],
@@ -81,7 +81,7 @@ from dbo.[ClientContacts] as cc
 		on c.Id = cc.ClientId
 group by c.Id, c.ClientName, cc.ClientId
 
--- Написать запрос, который возвращает список клиентов, у которых есть более 2 контактов
+-- РќР°РїРёСЃР°С‚СЊ Р·Р°РїСЂРѕСЃ, РєРѕС‚РѕСЂС‹Р№ РІРѕР·РІСЂР°С‰Р°РµС‚ СЃРїРёСЃРѕРє РєР»РёРµРЅС‚РѕРІ, Сѓ РєРѕС‚РѕСЂС‹С… РµСЃС‚СЊ Р±РѕР»РµРµ 2 РєРѕРЅС‚Р°РєС‚РѕРІ
 select 
 	c.Id [ClientId],
 	c.ClientName [ClientName]
