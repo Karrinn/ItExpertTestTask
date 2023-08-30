@@ -12,7 +12,7 @@ public class ApplicationContext : DbContext
         //Database.EnsureCreated();
     }
 
-    public DbSet<Item> Items { get; set; }
+    public virtual DbSet<Item> Items { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
