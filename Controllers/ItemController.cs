@@ -42,5 +42,10 @@ namespace ItExpertTestTask.Controllers
             return Ok(new { total, result });
         }
 
+        [HttpGet("Exception")]
+        public IActionResult GetException()
+        {
+            throw new Exception("This is test exception!");
+        }
     }
 }
