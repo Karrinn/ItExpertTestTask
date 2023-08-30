@@ -11,13 +11,12 @@ namespace ItExpertTestTask.Services
     {
         private readonly ApplicationContext dbContext;
 
-        // add EF db context
         public ItemSaveService(ApplicationContext dbContext)
         {
             this.dbContext = dbContext;
         }
 
-        public async Task<List<ItemDTO>> GetListAsync(ItemFiltrationModel filter)
+        public async Task<IList<ItemDTO>> GetListAsync(ItemFiltrationModel filter)
         {
             var query = dbContext
                 .Items

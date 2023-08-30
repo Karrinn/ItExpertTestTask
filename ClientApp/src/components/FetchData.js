@@ -158,7 +158,6 @@ export class FetchData extends Component {
         this.getItemsData('', '');
     }
 }
-let delayTimeout;
 
 const displayGridData = {
     flexColumn: {
