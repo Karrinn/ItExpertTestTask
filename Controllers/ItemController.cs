@@ -9,11 +9,13 @@ namespace ItExpertTestTask.Controllers
     [Route("[controller]")]
     public class ItemController : ControllerBase
     {
-        private readonly IItemSaveService _itemSaveService;
+        private readonly IItemService _itemSaveService;
+        private readonly ILogger<ItemController> _logger;
 
-        public ItemController(IItemSaveService itemSaveService)
+        public ItemController(IItemService itemSaveService, ILogger<ItemController> logger)
         {
             _itemSaveService = itemSaveService;
+            _logger = logger;
         }
 
         [HttpPost("data")]
@@ -21,21 +23,15 @@ namespace ItExpertTestTask.Controllers
         {
             ArgumentNullException.ThrowIfNullOrEmpty(nameof(jsonData));
 
-            var items = JsonDataHelper.GetOrderedData(jsonData);
+            var items = JsonDataHelper.GetOrderedData(jsonData).ToList();
             await _itemSaveService.SaveAsync(items);
 
             return Ok();
         }
 
         [HttpGet("data")]
-        public async Task<IActionResult> GetDataAsync([FromQuery] int? code, [FromQuery] string? value)
+        public async Task<IActionResult> GetDataAsync([FromQuery] ItemFiltrationModel filter)
         {
-            var filter = new ItemFiltrationModel
-            {
-                Code = code,
-                Value = value
-            };
-
             var result = await _itemSaveService.GetListAsync(filter);
             var total = result.Count;
 
@@ -45,6 +41,7 @@ namespace ItExpertTestTask.Controllers
         [HttpGet("Exception")]
         public IActionResult GetException()
         {
+            _logger.LogInformation("This is test exception!");
             throw new Exception("This is test exception!");
         }
     }

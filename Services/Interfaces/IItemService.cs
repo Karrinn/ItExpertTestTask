@@ -3,7 +3,7 @@ using ItExpertTestTask.Model.DTO;
 
 namespace ItExpertTestTask.Services.Interfaces
 {
-    public interface IItemSaveService
+    public interface IItemService
     {
         Task<IList<ItemDTO>> GetListAsync(ItemFiltrationModel filter);
 

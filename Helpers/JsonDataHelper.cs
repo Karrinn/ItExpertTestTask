@@ -4,7 +4,7 @@ namespace ItExpertTestTask.Helpers
 {
     public static class JsonDataHelper
     {
-        public static IEnumerable<ItemDTO> GetOrderedData(IEnumerable<Dictionary<string, string>> jsonData)
+        public static IList<ItemDTO> GetOrderedData(IEnumerable<Dictionary<string, string>> jsonData)
         {
             var items = jsonData.Select(kvp =>
                 new ItemDTO

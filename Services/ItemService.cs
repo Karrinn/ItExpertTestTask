@@ -7,11 +7,11 @@ using ItExpertTestTask.Model;
 
 namespace ItExpertTestTask.Services
 {
-    public class ItemSaveService : IItemSaveService
+    public class ItemService : IItemService
     {
         private readonly ApplicationContext dbContext;
 
-        public ItemSaveService(ApplicationContext dbContext)
+        public ItemService(ApplicationContext dbContext)
         {
             this.dbContext = dbContext;
         }

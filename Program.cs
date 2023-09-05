@@ -29,7 +29,7 @@ namespace ItExpertTestTask
                         ?? throw new InvalidOperationException("Connection string 'localdb' not found."))
                 );
 
-                builder.Services.AddScoped<IItemSaveService, ItemSaveService>();
+                builder.Services.AddScoped<IItemService, ItemService>();
 
                 var app = builder.Build();
 
